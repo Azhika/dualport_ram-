@@ -2,6 +2,8 @@ Simple Dual-Port RAM (1024 × 32)
 
 A beginner-friendly Verilog project implementing a 4 KB Simple Dual-Port RAM in AMD/Xilinx Vivado.
 
+![Simple Dual-Port RAM Architecture](dual_port_ram_architecture.png)
+
 The RAM uses:
 
 Port A for writing
@@ -82,7 +84,7 @@ So the valid memory addresses are:
 
 0 to 1023
 Architecture
-![Simple Dual-Port RAM Architecture](dual_port_ram_architecture.png)
+
 The memory contains one 1024 × 32 memory array shared by both ports.
 
 Port A: Write Port
