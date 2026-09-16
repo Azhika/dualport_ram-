@@ -82,6 +82,7 @@ So the valid memory addresses are:
 
 0 to 1023
 Architecture
+![Simple Dual-Port RAM Architecture](dual_port_ram_architecture.png)
 The memory contains one 1024 × 32 memory array shared by both ports.
 
 Port A: Write Port
