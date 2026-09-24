@@ -44,7 +44,7 @@ module tb_simple_dual_port_ram;
         begin
 
       
-            @(negedge clk);
+           @(negedge clk);//so that inputs are ready during the design code and not chnaging at the very instant when the ram wants to access it ,"We use the negative clock edge in the testbench to apply inputs before the RAM's positive clock edge. However, in actual synchronous hardware, circuits can use the same positive clock edge, provided setup and hold timing requirements are satisfied
 
             we_a   = 1'b1;
             addr_a = address;
