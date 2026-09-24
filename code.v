@@ -7,7 +7,7 @@ module simple_dual_port_ram(
     output reg [31:0] dout_b
     );
     reg[31:0] ram[0:1023];
-    (* ram_style = "block" *)
+    (* ram_style = "block" *)// the fpga has a special dedicated memory hardware called ram , this line tells the vivado pls implement this memory declared beneath using that fpgas dedicated blcok ram --- this is called synthesis attribute 
     always@(posedge clk) begin
     if(we_a)
     ram[addr_a]<=din_a;
