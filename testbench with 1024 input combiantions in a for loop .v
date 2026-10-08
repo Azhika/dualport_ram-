@@ -18,7 +18,8 @@ module tb_simple_dual_port_ram;
     reg [9:0] address_gen;
     reg [31:0] data_gen;
 
-    // RAM instantiation
+    // RAM instantiation 
+    
     simple_dual_port_ram uut (
         .clk(clk),
         .we_a(we_a),
@@ -33,7 +34,9 @@ module tb_simple_dual_port_ram;
 
     initial begin
 
-        // Initialize signals
+        // Initialize signals so they dont start as x unknown value 
+
+        //so we deliberately start everything from a known state 
         clk = 0;
         we_a = 0;
         addr_a = 0;
@@ -49,10 +52,14 @@ module tb_simple_dual_port_ram;
 
         for (i = 0; i < 1024; i = i + 1) begin
 
-            @(negedge clk);
+            @(negedge clk);// wait for the falling edge so that at the next cycle like during next pos edge the inputs are ready 
 
             address_gen = i;
             data_gen = 32'h12340000 + i;
+            //RAM[0] gets 12340000
+                //RAM[1] gets 12340001
+                   //  RAM[2] gets 12340002
+
 
             // 43-bit concatenation
             {we_a, addr_a, din_a} =
